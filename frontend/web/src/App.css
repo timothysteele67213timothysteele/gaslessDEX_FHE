@@ -1,0 +1,699 @@
+/* App.css */
+:root {
+  --zama-blue: #1a73e8;
+  --zama-light-blue: #4285f4;
+  --zama-dark-blue: #0d47a1;
+  --hologram-teal: #00bcd4;
+  --hologram-purple: #9c27b0;
+  --background-light: #f8fafc;
+  --text-primary: #1a202c;
+  --text-secondary: #4a5568;
+  --border-light: #e2e8f0;
+  --success-green: #48bb78;
+  --warning-orange: #ed8936;
+  --error-red: #f56565;
+}
+
+.hologram-theme {
+  background: linear-gradient(135deg, var(--background-light) 0%, #ffffff 100%);
+  min-height: 100vh;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Header Styles */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-light);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.zama-logo {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(45deg, var(--zama-blue), var(--hologram-teal));
+  border-radius: 8px;
+  position: relative;
+}
+
+.zama-logo::after {
+  content: "Z";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.logo-section h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  background: linear-gradient(45deg, var(--zama-blue), var(--hologram-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+}
+
+.tagline {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Button Styles */
+.hologram-btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.hologram-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.hologram-btn:hover::before {
+  left: 100%;
+}
+
+.hologram-btn.primary {
+  background: linear-gradient(45deg, var(--zama-blue), var(--hologram-teal));
+  color: white;
+}
+
+.hologram-btn.secondary {
+  background: transparent;
+  border: 2px solid var(--zama-blue);
+  color: var(--zama-blue);
+}
+
+.hologram-btn.large {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+}
+
+.hologram-btn.small {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+}
+
+.hologram-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-icon {
+  margin-right: 0.5rem;
+}
+
+/* Main Content */
+.main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Price Ticker */
+.price-ticker {
+  display: flex;
+  justify-content: space-around;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  border: 1px solid var(--border-light);
+}
+
+.token-price {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+}
+
+.token-symbol {
+  color: var(--zama-blue);
+}
+
+.price-change.positive {
+  color: var(--success-green);
+}
+
+.price-change.negative {
+  color: var(--error-red);
+}
+
+/* Swap Interface */
+.swap-interface {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border: 1px solid var(--border-light);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.interface-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.fhe-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(45deg, var(--zama-blue), var(--hologram-teal));
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.fhe-indicator {
+  width: 8px;
+  height: 8px;
+  background: #00ff88;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Step Progress */
+.step-progress {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.step-progress::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--border-light);
+  z-index: 1;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.step-number {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.step.active .step-number {
+  background: var(--zama-blue);
+  color: white;
+  transform: scale(1.1);
+}
+
+.step.completed .step-number {
+  background: var(--success-green);
+  color: white;
+}
+
+.step-label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+/* Swap Form */
+.swap-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.input-section, .output-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.token-input, .token-output {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.hologram-input {
+  flex: 1;
+  padding: 1rem;
+  border: 2px solid var(--border-light);
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: border-color 0.3s ease;
+}
+
+.hologram-input:focus {
+  outline: none;
+  border-color: var(--zama-blue);
+}
+
+.token-select {
+  padding: 1rem;
+  border: 2px solid var(--border-light);
+  border-radius: 12px;
+  background: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.swap-arrow {
+  text-align: center;
+  font-size: 2rem;
+  color: var(--zama-blue);
+  margin: -1rem 0;
+}
+
+/* Hologram Card */
+.hologram-card {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(20px);
+  border-radius: 16px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.hologram-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 16px;
+  padding: 2px;
+  background: linear-gradient(45deg, var(--zama-blue), transparent, var(--hologram-teal));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+/* Transaction History */
+.transaction-history {
+  margin-top: 2rem;
+}
+
+.history-list {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.transaction-row {
+  border-bottom: 1px solid var(--border-light);
+  padding: 1rem 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.transaction-row:hover {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.row-main {
+  display: grid;
+  grid-template-columns: 40px 1fr 1fr 1fr 1fr;
+  align-items: center;
+  gap: 1rem;
+}
+
+.tx-icon {
+  font-size: 1.2rem;
+}
+
+.status-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.status-badge.pending {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.status-badge.completed {
+  background: #d1edff;
+  color: var(--zama-blue);
+}
+
+.status-badge.failed {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.row-details {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 8px;
+}
+
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.detail-item code {
+  background: rgba(0, 0, 0, 0.1);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.swap-modal {
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  max-width: 500px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--text-secondary);
+}
+
+.modal-progress {
+  margin-bottom: 2rem;
+}
+
+.progress-bar {
+  height: 4px;
+  background: var(--border-light);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(45deg, var(--zama-blue), var(--hologram-teal));
+  transition: width 0.3s ease;
+}
+
+.step-content {
+  margin-bottom: 2rem;
+}
+
+/* Loading Spinner */
+.hologram-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid var(--border-light);
+  border-top: 4px solid var(--zama-blue);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--background-light) 0%, #ffffff 100%);
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 3rem 2rem;
+  color: var(--text-secondary);
+}
+
+.empty-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+/* Footer */
+.app-footer {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid var(--border-light);
+  padding: 2rem;
+  margin-top: 4rem;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tech-badges {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.tech-badge {
+  background: linear-gradient(45deg, var(--zama-blue), var(--hologram-teal));
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.footer-info {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* Transaction Modal */
+.transaction-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3000;
+}
+
+.status-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  min-width: 300px;
+}
+
+.status-icon {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.status-icon.success {
+  color: var(--success-green);
+}
+
+.status-icon.error {
+  color: var(--error-red);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .app-header {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  .header-controls {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .hologram-btn {
+    width: 100%;
+  }
+  
+  .main-content {
+    padding: 1rem;
+  }
+  
+  .price-ticker {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .swap-interface {
+    padding: 1rem;
+  }
+  
+  .step-progress {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .row-main {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  
+  .footer-content {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+}
+
+/* Hologram Effects */
+@keyframes hologramGlow {
+  0%, 100% { box-shadow: 0 0 20px rgba(26, 115, 232, 0.3); }
+  50% { box-shadow: 0 0 30px rgba(0, 188, 212, 0.5); }
+}
+
+.hologram-card {
+  animation: hologramGlow 3s ease-in-out infinite;
+}
+
+/* Encryption Animation */
+.encrypting-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid transparent;
+  border-top: 2px solid var(--zama-blue);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* FHE Compute Visual */
+.computation-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.fhe-node {
+  padding: 1rem;
+  background: var(--zama-blue);
+  color: white;
+  border-radius: 8px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.fhe-arrow {
+  color: var(--zama-blue);
+  font-weight: bold;
+}
+
+/* Benefits List */
+.benefits-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.benefit {
+  padding: 0.5rem;
+  background: rgba(72, 187, 120, 0.1);
+  border-radius: 6px;
+  color: var(--success-green);
+  font-weight: 600;
+}
