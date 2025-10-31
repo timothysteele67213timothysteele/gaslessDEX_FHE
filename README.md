@@ -1,4 +1,4 @@
-```markdown
+
 # gaslessDEX_FHE: A DEX for Privacy-Enhanced, Gasless Transactions
 
 gaslessDEX_FHE is a decentralized exchange (DEX) that empowers users to conduct transactions with complete privacy, leveraging **Zama's Fully Homomorphic Encryption (FHE) technology**. This innovative platform allows users to trade without the need for gas fees, thanks to meta-transactions, ensuring a user-friendly experience that prioritizes confidentiality.
